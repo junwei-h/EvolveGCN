@@ -8,7 +8,7 @@ elliptic_args:
   times_file: elliptic_bitcoin_dataset_cont/elliptic_txs_nodetime.csv
   aggr_time: 1
 
-use_cuda: False
+use_cuda: True
 use_logfile: True
 
 model: egcn_h
