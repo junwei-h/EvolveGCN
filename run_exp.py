@@ -202,7 +202,7 @@ if __name__ == '__main__':
 		seed = 123+rank#int(time.time())+rank
 	else:
 		seed=args.seed#+rank
-	np.random.seed(seed)
+	np.random.seed(seed) # attempt to make the result reproducible. 
 	random.seed(seed)
 	torch.manual_seed(seed)
 	torch.cuda.manual_seed(seed)
