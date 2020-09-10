@@ -94,9 +94,9 @@ class mat_GRU_cell(torch.nn.Module):
                                 k = args.cols)
 
     def forward(self,prev_Q,prev_Z,mask):
-        z_topk = self.choose_topk(prev_Z,mask)
+        z_topk = self.choose_topk(prev_Z,mask) #Z here is X: embedded node feature
 
-        update = self.update(z_topk,prev_Q)
+        update = self.update(z_topk,prev_Q) #Q here is H: hidden vector
         reset = self.reset(z_topk,prev_Q)
 
         h_cap = reset * prev_Q

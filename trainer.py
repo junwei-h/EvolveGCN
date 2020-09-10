@@ -151,12 +151,13 @@ class Trainer():
 	def prepare_sample(self,sample):
 		sample = u.Namespace(sample)
 		for i,adj in enumerate(sample.hist_adj_list):
+			
 			adj = u.sparse_prepare_tensor(adj,torch_size = [self.num_nodes])
 			sample.hist_adj_list[i] = adj.to(self.args.device)
 
 			nodes = self.tasker.prepare_node_feats(sample.hist_ndFeats_list[i])
-
 			sample.hist_ndFeats_list[i] = nodes.to(self.args.device)
+
 			node_mask = sample.node_mask_list[i]
 			sample.node_mask_list[i] = node_mask.to(self.args.device).t() #transposed to have same dimensions as scorer
 
